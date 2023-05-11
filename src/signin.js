@@ -1,68 +1,75 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Signin() {
-    // const  handleLogin = async() =>{
-    //     await service.post('/auth/signin',  {
-    //       "name": 'yash.khare@neenopal.com',
-    //       "password": 'Tableau@123',
-    //       "site": {
-    //         "contentUrl": 'Neenopalinc'
-    //       }
-    //     },{
-    //     headers:{
-    //       Accept: 'application/json',
-    //      'Content-Type': 'application/json',
-    //       // Authorization: 'Bearer ' + token // if you use token
-    //   }
-    //   })
-    //     .then(function (response) {
-    //       console.log(response);
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error);
-    //     });
-    //     let credentials = {
-    //       "name": 'yash.khare@neenopal.com',
-    //       "password": 'Tableau@123',
-    //       "site": {
-    //         "contentUrl": 'Neenopalinc'
-    //       }
-    //     };
-    //     const auth_url = 'https://prod-useast-b.online.tableau.com/api/3.19/auth/signin';
-    //     const username = 'yash.khare@neenopal.com';
-    //     const password = 'Tableau@123';
-    //     const site_id = 'Neenopalinc';
+  const navigate = useNavigate()
 
-    //     const payload = {
-    //       credentials: {
-    //         name: username,
-    //         password: password,
-    //         site: {
-    //           contentUrl: site_id
-    //         }
-    //       }
-    //     };
+    const  handleLogin = async(e) =>{
+      e.preventDefault();
+      //   await service.post('/auth/signin',  {
+      //     "name": 'yash.khare@neenopal.com',
+      //     "password": 'Tableau@123',
+      //     "site": {
+      //       "contentUrl": 'Neenopalinc'
+      //     }
+      //   },{
+      //   headers:{
+      //     Accept: 'application/json',
+      //    'Content-Type': 'application/json',
+      //     // Authorization: 'Bearer ' + token // if you use token
+      // }
+      // })
+      //   .then(function (response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+        let credentials = {
+          "name": 'yash.khare@neenopal.com',
+          "password": 'Tableau@123',
+          "site": {
+            "contentUrl": 'Neenopalinc'
+          }
+        };
+        const auth_url = 'https://prod-useast-b.online.tableau.com/api/3.19/auth/signin';
+        const username = 'yash.khare@neenopal.com';
+        const password = 'Tableau@123';
+        const site_id = 'Neenopalinc';
 
-    //     const headers = {
-    //       Accept: 'application/json'
-    //     };
+        const payload = {
+          credentials: {
+            name: username,
+            password: password,
+            site: {
+              contentUrl: site_id
+            }
+          }
+        };
 
-    //     fetch(auth_url, {
-    //       method: 'POST',
-    //       headers: headers,
-    //       body: JSON.stringify(payload)
-    //     })
-    //       .then(response => response.json())
-    //       .then(data => console.log(data))
-    //       .catch(error => console.error(error));
+        const headers = {
+          Accept: 'application/json'
+        };
 
-    //   }
+        fetch(auth_url, {
+          method: 'POST',
+          headers: headers,
+          body: JSON.stringify(payload)
+        })
+          .then(response => response.json())
+          .then(data =>{ console.log(data); navigate('/workbooks')})
+          .catch(error => {console.error(error); navigate('/workbooks')});
+
+      }
+
+ 
   return (
     <div className="authentication-page">
-      <Form>
+      <Form onSubmit={ handleLogin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
