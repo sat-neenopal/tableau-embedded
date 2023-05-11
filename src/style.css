@@ -22,4 +22,44 @@ box-sizing: border-box;
     flex-wrap: wrap;
     gap: 20px;
 }
+.project-grid {
+
+    display: flex;
+    padding: 30px 7px;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .nav-tabs {
+        display: flex;
+        width: 100%;
+        background-color: #f6f6f6 !important;
+
+        .nav-item {
+            min-width: 65px;
+
+            color: #5e5e5e !important;
+            background-color: #f6f6f6 !important;
+            border-left: none;
+            border-right: 1px solid #e6e7e9 !important;
+            border-radius: 0px !important;
+            border-top: 2px solid transparent !important;
+            border-bottom: 2px solid transparent !important;
+            white-space: nowrap;
+            font-size: 13px;
+
+
+        }
+
+        .active {
+            background: white !important;
+        }
+    }
+    .embedded-project{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
