@@ -13,17 +13,19 @@ box-sizing: border-box;
 }
 
 .workbook-grid{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
-    width: 50%;
+    width: 90%;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
+    padding: 100px 0px;
+    margin: auto;
+    .card{
+        cursor: pointer;
+    }
 }
-.project-grid {
 
+.project-grid {
     display: flex;
     padding: 30px 7px;
     width: 100%;
@@ -37,7 +39,6 @@ box-sizing: border-box;
 
         .nav-item {
             min-width: 65px;
-
             color: #5e5e5e !important;
             background-color: #f6f6f6 !important;
             border-left: none;
@@ -47,7 +48,6 @@ box-sizing: border-box;
             border-bottom: 2px solid transparent !important;
             white-space: nowrap;
             font-size: 13px;
-
 
         }
 
